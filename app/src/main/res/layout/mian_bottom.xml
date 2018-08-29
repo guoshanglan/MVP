@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="#484848" />
+
+    <LinearLayout
+        android:id="@+id/radiogrop_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="6dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="7.5dp">
+
+
+        <RadioButton
+            android:id="@+id/rb_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:textSize="14sp"
+            android:background="@color/white"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:drawableTop="@drawable/home_select"
+            android:text="首页" />
+
+
+
+
+        <RadioButton
+            android:id="@+id/rb_faxian"
+            android:button="@null"
+            android:textSize="14sp"
+            android:drawablePadding="4dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@color/white"
+            android:drawableTop="@drawable/faxian_select"
+            android:text="发现" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:visibility="visible"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+
+            <RadioButton
+                android:id="@+id/rb_message"
+                android:button="@null"
+                android:textSize="14sp"
+                android:drawablePadding="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@color/white"
+                android:layout_centerInParent="true"
+                android:drawableTop="@drawable/message_select"
+                android:text="消息" />
+
+        </RelativeLayout>
+        <RadioButton
+            android:id="@+id/rb_more"
+            android:button="@null"
+            android:textSize="14sp"
+            android:drawablePadding="4dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@color/white"
+            android:drawableTop="@drawable/my_select"
+            android:text="我的" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
