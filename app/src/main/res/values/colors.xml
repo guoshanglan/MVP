@@ -10,4 +10,11 @@
     <color name="black">#000000</color>
     <color name="background_color">#f6f6f6</color>
     <color name="text_color">#484848</color>
+
+    <color name="youhui_background">#ffecee</color>
+    <color name="youhui_textcolor">#f4334d</color>
+    <color name="renzheng_textcolor">#fdb42d</color>
+    <color name="renzheng_background">#fff1eb</color>
+    <color name="renzheng_textcolor_people">#0095ff</color>
+    <color name="renzheng_backcolor_people">#dbeffb</color>
 </resources>
