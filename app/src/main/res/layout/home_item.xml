@@ -5,21 +5,38 @@
 
 
     <ImageView
-        android:layout_width="@dimen/margin_100dp"
+        android:layout_width="120dp"
         android:layout_height="80dp"
         android:src="@drawable/meinv"
+        android:layout_margin="@dimen/margin_15dp"
         android:id="@+id/iv_item"
         android:scaleType="fitXY"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="阿辉"
+        android:text="Take me to you heart,show mesfsfsfsfo"
         android:textColor="@color/text_color"
-        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/iv_item"
         android:id="@+id/tv_title"
+        android:ellipsize="end"
+        android:singleLine="true"
         android:layout_marginRight="@dimen/margin_15dp"
         android:layout_marginTop="@dimen/margin_10dp"
-        android:textSize="20dp"/>
+        android:textSize="16dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginTop="43dp"
+        android:layout_toRightOf="@+id/iv_item"
+        android:text="时间：2018-09-03" />
+
+
+
+
+
 
 </RelativeLayout>
