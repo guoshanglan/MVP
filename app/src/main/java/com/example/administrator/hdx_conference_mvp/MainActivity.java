@@ -100,9 +100,9 @@ public class MainActivity extends BaseActivity {
 
                }else{
                    buttonList.get(i).setSelected(false);
-                   buttonList.get(i).setTextColor(Color.parseColor("#838383"));
-                   buttonList.get(i).setTextColor(Color.parseColor("#838383"));
-                   buttonList.get(i).setTextColor(Color.parseColor("#838383"));
+                   buttonList.get(i).setTextColor(Color.parseColor("#484848"));
+                   buttonList.get(i).setTextColor(Color.parseColor("#484848"));
+                   buttonList.get(i).setTextColor(Color.parseColor("#484848"));
                }
            }
 

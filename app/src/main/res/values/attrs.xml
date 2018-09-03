@@ -143,4 +143,6 @@
         <attr name="isRect" format="boolean" />
     </declare-styleable>
 
+
+
 </resources>

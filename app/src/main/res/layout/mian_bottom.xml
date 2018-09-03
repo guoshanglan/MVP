@@ -32,6 +32,7 @@
             android:background="@color/white"
             android:drawablePadding="4dp"
             android:gravity="center"
+            android:textColor="#e6007b"
             android:drawableTop="@drawable/home_select"
             android:text="首页" />
 
@@ -48,6 +49,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="center"
+            android:textColor="#484848"
             android:background="@color/white"
             android:drawableTop="@drawable/faxian_select"
             android:text="发现" />
@@ -68,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
+                android:textColor="#484848"
                 android:background="@color/white"
                 android:layout_centerInParent="true"
                 android:drawableTop="@drawable/message_select"
@@ -84,6 +87,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="center"
+            android:textColor="#484848"
             android:background="@color/white"
             android:drawableTop="@drawable/my_select"
             android:text="我的" />
