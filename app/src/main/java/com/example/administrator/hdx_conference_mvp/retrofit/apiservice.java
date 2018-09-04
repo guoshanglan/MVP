@@ -5,6 +5,7 @@ import java.util.Map;
 import io.reactivex.Observable;
 import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
+import retrofit2.Call;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -26,29 +27,48 @@ import retrofit2.http.Url;
 
 public interface apiservice {
 
+
     //get请求
-    @GET
-    Observable<String> get(@Url String url, @QueryMap Map<String, String> params, @HeaderMap Map<String, String> headers);
+    @GET()
+    Call<String> get(@Url String url, @QueryMap Map<String, String> params, @HeaderMap Map<String, String> headers);
 
     //post请求，一般会带这两个注解  参数说明： url ：接口地址  map：参数集合 ，header：需要添加的请求头
     @FormUrlEncoded
     @POST()
-    Observable<String> post(@Url String url, @FieldMap Map<String, String> params, @HeaderMap Map<String, String> headers);
-
-
-    @FormUrlEncoded
-    @PUT
-    Observable<String> put(@Url String url, @FieldMap Map<String, String> params, @HeaderMap Map<String, String> headers);
+    Call<String> post(@Url String url, @FieldMap Map<String, String> params, @HeaderMap Map<String, String> headers);
 
     @Streaming
     @GET()
-    Observable<ResponseBody> download(@HeaderMap Map<String, String> headers, @Url String url, @QueryMap Map<String, String> params);
+    Call<ResponseBody> download(@HeaderMap Map<String, String> headers, @Url String url, @QueryMap Map<String, String> params);
+
 
 
     //多文件上传，例如图片等  参数： url：路径名称  part:文件集合
     @POST()
     @Multipart
-    Observable<String> upLoadImg(@Url String Url,@Part MultipartBody.Part[] parts , @HeaderMap Map<String,String>header);
+    Call<String> upLoadImg(@Url String Url, @Part MultipartBody.Part[] parts , @HeaderMap Map<String,String>header);
+
+
+
+    //get请求
+    @GET
+    Observable<String> obget(@Url String url, @QueryMap Map<String, String> params, @HeaderMap Map<String, String> headers);
+
+    //post请求，一般会带这两个注解  参数说明： url ：接口地址  map：参数集合 ，header：需要添加的请求头
+    @FormUrlEncoded
+    @POST()
+    Observable<String> obpost(@Url String url, @FieldMap Map<String, String> params, @HeaderMap Map<String, String> headers);
+
+
+    @FormUrlEncoded
+    @PUT
+    Observable<String> obput(@Url String url, @FieldMap Map<String, String> params, @HeaderMap Map<String, String> headers);
+
+    @Streaming
+    @GET()
+    Observable<ResponseBody> obdownload(@HeaderMap Map<String, String> headers, @Url String url, @QueryMap Map<String, String> params);
+
+
 
 
 

@@ -16,13 +16,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.example.administrator.hdx_conference_mvp.retrofit.HttpUtil.checkHeaders;
 import static com.example.administrator.hdx_conference_mvp.retrofit.HttpUtil.checkParams;
+import static com.example.administrator.hdx_conference_mvp.retrofit.HttpUtil.putCall;
 
 
 /**
@@ -200,41 +209,107 @@ public class HttpBuilder {
 
 
 
-    public Observable<ResponseBody> Obdownload() {
+    /*public Observable<ResponseBody> Obdownload() {
         this.url = checkUrl(this.url);
         this.params = checkParams(this.params);
         this.headers.put(Constant.DOWNLOAD, Constant.DOWNLOAD);
         this.headers.put(Constant.DOWNLOAD_URL, this.url);
         return HttpUtil.getService().download(checkHeaders(headers), url, checkParams(params));
     }
-
-
+*/
 
     //get请求
-    @CheckResult
-    public Observable<String> get() {
-        return HttpUtil.getService().get(checkUrl(this.url), checkParams(params), checkHeaders(headers))
-                ;
+    public void get() {
+        if (!allready()) {
+            return;
+        }
+
+        Call call = HttpUtil.getService().get(checkUrl(this.url), checkParams(params), checkHeaders(headers));
+        putCall(tag, url, call);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.code() == 200) {
+                    mSuccessCallBack.Success(response.body());
+                } else {
+                    mErrorCallBack.Error(message(response.message()));
+                }
+                if (tag != null)
+                    HttpUtil.removeCall(url);
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                t.printStackTrace();
+                mErrorCallBack.Error(message(t.getMessage()));
+                if (tag != null)
+                    HttpUtil.removeCall(url);
+            }
+        });
     }
 
+
     //post请求
-    @CheckResult
+    public void post() {
+        if (!allready()) {
+            return;
+        }
+        Call call = HttpUtil.getService().post(checkUrl(this.url), checkParams(params), checkHeaders(headers));
+        putCall(tag, url, call);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.code() == 200) {
+                    mSuccessCallBack.Success(response.body());
+                } else {
+                    mErrorCallBack.Error(message(response.message()));
+                }
+                if (tag != null)
+                    HttpUtil.removeCall(url);
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                t.printStackTrace();
+                mErrorCallBack.Error(message(t.getMessage()));
+                if (tag != null)
+                    HttpUtil.removeCall(url);
+            }
+        });
+    }
+
+
+
+
+
+   /* @CheckResult
+    public Observable<String> obget() {
+        if (!allready()) {
+            return null;
+        }
+        Observable call = HttpUtil.getService().post2(checkUrl(this.url), checkParams(params), checkHeaders(headers));
+
+    }
+
+
+*//* *//**//*   @CheckResult
     public Observable<String> Obpost() {
         return HttpUtil.getService().post(checkUrl(this.url), checkParams(params), checkHeaders(headers));
     }
-
+*//*
     @CheckResult
     public Observable<String> Obput() {
         return HttpUtil.getService().put(checkUrl(this.url), checkParams(params), checkHeaders(headers))
                 ;
-    }
+    }*/
 
 
-    @CheckResult
+
+
     //文件上传 ，参数为文件路径名称
-    public Observable<String> upLoadImg(ArrayList<String> media) {
+    public void upLoadImg(ArrayList<String> media) {
         if (media == null) {
-            return null;
+            return ;
         }
 
         MultipartBody.Part[] parts = new MultipartBody.Part[media.size()];
@@ -246,10 +321,76 @@ public class HttpBuilder {
             parts[cnt] = filePart;
             cnt++;
         }
+        Call call = HttpUtil.getService().upLoadImg(checkUrl(this.url), parts, checkHeaders(headers));
+        putCall(tag, url, call);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.code() == 200) {
+                    mSuccessCallBack.Success(response.body());
+                } else {
+                    mErrorCallBack.Error(message(response.message()));
+                }
+                if (tag != null)
+                    HttpUtil.removeCall(url);
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                t.printStackTrace();
+                mErrorCallBack.Error(message(t.getMessage()));
+                if (tag != null)
+                    HttpUtil.removeCall(url);
+            }
+        });
 
 
-        return HttpUtil.getService().upLoadImg(checkUrl(this.url), parts, checkHeaders(headers));
     }
+
+
+
+
+
+    //下载
+    public void download() {
+        this.url = checkUrl(this.url);
+        this.params = checkParams(this.params);
+        this.headers.put(Constant.DOWNLOAD, Constant.DOWNLOAD);
+        this.headers.put(Constant.DOWNLOAD_URL, this.url);
+        Call call = HttpUtil.getService().download(checkHeaders(headers), url, checkParams(params));
+        putCall(tag, url, call);
+        Observable<ResponseBody> observable = Observable.create(new ObservableOnSubscribe<ResponseBody>() {
+            @Override
+            public void subscribe(ObservableEmitter<ResponseBody> e) throws Exception {
+
+            }
+        });
+
+        observable.observeOn(Schedulers.io())
+                .subscribe(new Observer<ResponseBody>() {
+                               @Override
+                               public void onSubscribe(Disposable d) {
+
+                               }
+
+                               @Override
+                               public void onNext(ResponseBody value) {
+
+                               }
+
+                               @Override
+                               public void onError(Throwable e) {
+
+                               }
+
+                               @Override
+                               public void onComplete() {
+
+                               }
+                           }
+                );
+    }
+
 
 
 

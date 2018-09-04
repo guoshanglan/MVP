@@ -43,6 +43,15 @@ public class LoginBean {
         this.result = result;
     }
 
+    @Override
+    public String toString() {
+        return "LoginBean{" +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
+                ", result=" + result +
+                '}';
+    }
+
     public static class ResultBean {
         /**
          * activityid : 7403694287700
@@ -226,6 +235,30 @@ public class LoginBean {
 
         public void setTids(List<String> tids) {
             this.tids = tids;
+        }
+
+        @Override
+        public String toString() {
+            return "ResultBean{" +
+                    "activityid=" + activityid +
+                    ", userid='" + userid + '\'' +
+                    ", username='" + username + '\'' +
+                    ", userlogo='" + userlogo + '\'' +
+                    ", company='" + company + '\'' +
+                    ", city='" + city + '\'' +
+                    ", industry='" + industry + '\'' +
+                    ", position='" + position + '\'' +
+                    ", desc='" + desc + '\'' +
+                    ", wechat='" + wechat + '\'' +
+                    ", qq='" + qq + '\'' +
+                    ", email='" + email + '\'' +
+                    ", phone='" + phone + '\'' +
+                    ", isfollow=" + isfollow +
+                    ", id='" + id + '\'' +
+                    ", token='" + token + '\'' +
+                    ", interesttags=" + interesttags +
+                    ", tids=" + tids +
+                    '}';
         }
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.example.administrator.hdx_conference_mvp.Url;
 import com.example.administrator.hdx_conference_mvp.bean.LoginBean;
-import com.example.administrator.hdx_conference_mvp.inter.LoginListener;
+import com.example.administrator.hdx_conference_mvp.presenter.LoginPresenter;
 import com.example.administrator.hdx_conference_mvp.retrofit.HttpBuilder;
 import com.example.administrator.hdx_conference_mvp.retrofit.interfaces.Fair;
 import com.example.administrator.hdx_conference_mvp.retrofit.interfaces.Success;
@@ -18,7 +18,10 @@ import com.google.gson.Gson;
 public class LoginModel {
    public LoginBean loginBean;
 
-   public void loginNet(Context context, String number, String password , final LoginListener listener){
+
+
+   //登录的网络请求
+   public void loginNet(final Context context, String number, String password , final LoginPresenter listener){
        new HttpBuilder(Url.LOGIN)
                .params("username",number)
                .params("password",password)
@@ -38,9 +41,9 @@ public class LoginModel {
                .error(new Fair() {
                    @Override
                    public void Error(Object... values) {
-                      listener.loginFailed(values.toString());
+                       listener.loginFailed(values.toString());
                    }
-               }).Obpost();
+               }).post();
 
 
    }

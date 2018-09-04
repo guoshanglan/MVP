@@ -189,6 +189,7 @@ public class HttpUtil {
 
 
     static Map<String, Call> CALL_MAP = new HashMap<>();
+    static Map<String, io.reactivex.Observable> CALL_MAP2 = new HashMap<>();
 
     /*
     *添加某个请求
@@ -203,6 +204,19 @@ public class HttpUtil {
         }
     }
 
+
+    /*
+  *添加某个请求
+  *@author Administrator
+  *@date 2016/10/12 11:00
+  */
+    public static synchronized void putCall2(Object tag, String url, io.reactivex.Observable call) {
+        if (tag == null)
+            return;
+        synchronized (CALL_MAP) {
+            CALL_MAP2.put(tag.toString() + url, call);
+        }
+    }
     /*
     *取消某个界面都所有请求，或者是取消某个tag的所有请求
     * 如果要取消某个tag单独请求，tag需要转入tag+url

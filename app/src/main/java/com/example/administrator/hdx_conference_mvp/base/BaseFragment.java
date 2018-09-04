@@ -14,6 +14,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     protected BasePresenter mPresenter;
     protected MyAppLication appLication;
 
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
