@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#f0f0f2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/textView_more"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="更多"
+        android:gravity="center"
+        android:background="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/textsize_18"
+        android:textColor="#484848" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_gerenziliao_more"
+        android:background="@drawable/selector_click_btn"
+        android:layout_marginTop="@dimen/margin_13dp">
+
+        <com.example.administrator.hdx_conference_mvp.widview.CircleImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="@dimen/margin_15dp"
+            android:layout_marginTop="@dimen/margin_20dp"
+            android:layout_marginBottom="@dimen/margin_20dp"
+            android:src="@drawable/zhanwei"
+            android:id="@+id/iv_touxiang_more"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="登录"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:layout_toRightOf="@id/iv_touxiang_more"
+            android:layout_marginTop="@dimen/margin_23dp"
+            android:textColor="#171717"
+            android:id="@+id/tv_username_more"
+            android:textSize="@dimen/textsize_16"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="登录"
+            android:textSize="@dimen/textsize_14"
+            android:textColor="#484848"
+            android:id="@+id/tv_zhiwu_more"
+            android:layout_toRightOf="@id/iv_touxiang_more"
+            android:layout_below="@id/tv_username_more"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginLeft="@dimen/margin_10dp"/>
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/zhanshang_arrow"
+            android:layout_alignParentRight="true"
+            android:id="@+id/iv_more_arrow"
+            android:layout_marginRight="@dimen/margin_15dp"
+            android:layout_alignTop="@id/tv_username_more"/>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_my_erweima"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:background="@color/white">
+        <ImageView
+            android:layout_width="@dimen/margin_20dp"
+            android:layout_height="@dimen/margin_20dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginLeft="@dimen/margin_15dp"
+            android:layout_marginTop="@dimen/margin_15dp"
+            android:layout_marginBottom="@dimen/margin_15dp"
+            android:id="@+id/iv_my_erweima"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试"
+            android:textSize="@dimen/textsize_15"
+            android:textColor="#484848"
+            android:layout_toRightOf="@id/iv_my_erweima"
+            android:layout_marginLeft="@dimen/margin_15dp"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/zhanshang_arrow"
+            android:layout_alignParentRight="true"
+            android:id="@+id/iv_my_erweima2"
+            android:layout_marginRight="@dimen/margin_15dp"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_erwiema"
+        android:layout_marginTop="1dp"
+        android:background="@color/white"
+        >
+        <ImageView
+            android:layout_width="@dimen/margin_20dp"
+            android:layout_height="@dimen/margin_20dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginLeft="@dimen/margin_15dp"
+            android:layout_marginTop="@dimen/margin_15dp"
+            android:layout_marginBottom="@dimen/margin_15dp"
+            android:id="@+id/iv_erweima"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试"
+            android:textSize="@dimen/textsize_15"
+            android:textColor="#484848"
+            android:layout_toRightOf="@id/iv_erweima"
+            android:layout_marginLeft="@dimen/margin_15dp"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/zhanshang_arrow"
+            android:layout_alignParentRight="true"
+            android:id="@+id/iv_more_erweima_arrow"
+            android:layout_marginRight="@dimen/margin_15dp"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_erwiema_huicangAdress"
+        android:background="@color/white"
+        android:layout_marginTop="1dp">
+        <ImageView
+            android:layout_width="@dimen/margin_20dp"
+            android:layout_height="@dimen/margin_20dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginLeft="@dimen/margin_15dp"
+            android:layout_marginTop="@dimen/margin_15dp"
+            android:layout_marginBottom="@dimen/margin_15dp"
+            android:id="@+id/iv_erweima_huicangAdress"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试"
+            android:textSize="@dimen/textsize_15"
+            android:textColor="#484848"
+            android:layout_toRightOf="@id/iv_erweima_huicangAdress"
+            android:layout_marginLeft="@dimen/margin_15dp"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/zhanshang_arrow"
+            android:layout_alignParentRight="true"
+            android:id="@+id/iv_more_huicangAdress_arrow"
+            android:layout_marginRight="@dimen/margin_15dp"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="登录"
+            android:background="@drawable/login_shape"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/textsize_15"
+            android:textColor="#484848"
+            android:gravity="center"
+            android:id="@+id/tv_out"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="@dimen/margin_15dp"
+            android:layout_centerVertical="true"/>
+
+
+
+    </LinearLayout>
+    </ScrollView>
+
+
+
+
+</LinearLayout>
