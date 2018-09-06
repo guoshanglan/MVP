@@ -11,4 +11,7 @@ public class Url {
 
     //登录接口
     public static String LOGIN=localhost+"/login";
+
+    //找回接口
+    public static String FindPassword=localhost+"/findpassword";
 }

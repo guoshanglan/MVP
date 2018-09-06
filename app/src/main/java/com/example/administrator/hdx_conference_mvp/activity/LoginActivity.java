@@ -1,6 +1,7 @@
 package com.example.administrator.hdx_conference_mvp.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -65,7 +66,7 @@ public class LoginActivity extends BaseActivity  implements LoginView{
                 finish();
                 break;
             case R.id.tv_forgetpassword:   //忘记密码
-
+              startActivity(new Intent(LoginActivity.this,FindPassword_Activity.class));
                 break;
 
             case R.id.tv_resigest:   //注册
