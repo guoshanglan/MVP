@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -13,29 +13,44 @@
             android:id="@+id/textView_more"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:text="首页"
-            android:textSize="@dimen/textsize_18"
             android:textColor="#484848"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:textSize="@dimen/textsize_18" />
     </FrameLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0.1dp"
         android:background="@color/text_color"></View>
 
 
-    <com.example.administrator.hdx_conference_mvp.widview.XListView
-        android:id="@+id/listview"
-        android:background="@color/background_color"
+    <com.example.administrator.hdx_conference_mvp.widview.PagerSlidingTabStrip
+        android:id="@+id/pageSide"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y25"
+        android:background="@color/white"
+        android:gravity="center"
+        app:pstsDividerColor="@color/transparent"
+        app:pstsIndicatorColor="#03b349"
+        app:pstsIndicatorHeight="2dp"
+        app:pstsShouldExpand="true"
+        app:pstsTabBackground="@null"
+        app:pstsTabPaddingLeftRight="@dimen/y15"
+        app:pstsUnderlineHeight="0dp">
+
+    </com.example.administrator.hdx_conference_mvp.widview.PagerSlidingTabStrip>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="0dp"
-        android:cacheColorHint="@color/transparent"
-        android:divider="@android:color/transparent"
-        android:listSelector="@color/transparent" />
+        android:background="@color/white">
 
+
+    </android.support.v4.view.ViewPager>
 
 
 </LinearLayout>

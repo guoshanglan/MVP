@@ -1,6 +1,7 @@
 package com.example.administrator.hdx_conference_mvp.base;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.example.administrator.hdx_conference_mvp.Url;
 import com.example.administrator.hdx_conference_mvp.retrofit.HttpUtil;
@@ -14,6 +15,7 @@ public class MyAppLication extends Application {
 
     public static MyAppLication application;
     public SharedUtils sharedUtils;
+    public static Context mcontext;
 
     //创建应用
     @Override
@@ -25,8 +27,12 @@ public class MyAppLication extends Application {
         //初始化网络框架
         new HttpUtil.SingletonBuilder(this, Url.localhost)
                 .build();
+        mcontext = this;
     }
 
+    public static Context getContext() {
+        return mcontext;
+    }
 
     public static MyAppLication getInstance() {
         return application ;

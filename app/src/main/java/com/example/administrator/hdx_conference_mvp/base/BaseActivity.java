@@ -2,7 +2,9 @@ package com.example.administrator.hdx_conference_mvp.base;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +12,7 @@ import android.widget.ImageView;
 
 import com.example.administrator.hdx_conference_mvp.R;
 import com.example.administrator.hdx_conference_mvp.inter.IBase;
+import com.githang.statusbar.StatusBarCompat;
 
 /**
  * Created by Administrator on 2018/8/27.
@@ -24,6 +27,10 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+            StatusBarCompat.setStatusBarColor(this, Color.WHITE, true);
+
+        }
         //绑定初始化ButterKnife
         appLication=MyAppLication.getInstance();
         mPresenter = getPresenter();

@@ -17,6 +17,7 @@ import com.example.administrator.hdx_conference_mvp.base.BaseActivity;
 import com.example.administrator.hdx_conference_mvp.base.BasePresenter;
 import com.example.administrator.hdx_conference_mvp.bean.LoginBean;
 import com.example.administrator.hdx_conference_mvp.presenter.LoginPresenter;
+import com.example.administrator.hdx_conference_mvp.utils.StatusBarUtil;
 import com.example.administrator.hdx_conference_mvp.view.LoginView;
 import com.example.administrator.hdx_conference_mvp.widview.EditTextWithDel;
 
@@ -51,6 +52,8 @@ public class LoginActivity extends BaseActivity  implements LoginView{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loginactivity);
+
+        StatusBarUtil.setTranslucent(this, 0);
         ButterKnife.bind(this);
 
     }
