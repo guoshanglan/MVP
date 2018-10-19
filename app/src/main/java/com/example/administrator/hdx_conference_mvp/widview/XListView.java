@@ -44,7 +44,7 @@ public class XListView extends ListView implements OnScrollListener {
 	private boolean mIsFooterReady = false;
 
 	// total list items, used to detect is at the bottom of listview.
-	private int mTotalItemCount;
+	public int mTotalItemCount;
 
 	// for mScroller, scroll back from header or footer.
 	private int mScrollBack;
