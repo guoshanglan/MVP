@@ -53,9 +53,11 @@ public class HomeFragment extends BaseFragment {
         //先查询数据库中是否含有，没有的话，在添加数据
         List<TagString> name=tagStringDao.loadAll();
         if (name!=null&&name.size()>0){
-            for (int i=0;i<name.size();i++) {
+            title.add("首页");
+            list.add(new HomePageFragment());
+            for (int i = 1; i < name.size(); i++) {
              title.add(name.get(i).getTitle());
-             list.add(new HomePageFragment());
+                list.add(new FloatFragment());
             }
         }else{
            TagString tagString=new TagString("首页");
@@ -67,9 +69,9 @@ public class HomeFragment extends BaseFragment {
             title.add(tagString3.getTitle());
             title.add(tagString4.getTitle());
              list.add(new HomePageFragment());
-            list.add(new HomePageFragment());
-            list.add(new HomePageFragment());
-            list.add(new HomePageFragment());
+            list.add(new FloatFragment());
+            list.add(new FloatFragment());
+            list.add(new FloatFragment());
             if (!isInsert(tagString)) {
                 tagStringDao.insert(tagString);
             }

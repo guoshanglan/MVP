@@ -62,9 +62,9 @@ public class XListView extends ListView implements OnScrollListener {
 	private TextView tvUploadAccu;
 
 	Context mContext;
-	private boolean mIsAutoLoadMore;
-	private int lastItemIndex;
-	private int mCount;
+	public boolean mIsAutoLoadMore;
+	public int lastItemIndex;
+	public int mCount;
 	
 	public boolean isAutoLoadMore() {
 		return mIsAutoLoadMore;
