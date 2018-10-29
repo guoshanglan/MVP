@@ -1,6 +1,8 @@
 package com.example.administrator.hdx_conference_mvp.activity;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -13,6 +15,7 @@ import com.example.administrator.hdx_conference_mvp.base.BasePresenter;
 import com.example.administrator.hdx_conference_mvp.bean.FindPasswordBean;
 import com.example.administrator.hdx_conference_mvp.presenter.FindPasswordPresenter;
 import com.example.administrator.hdx_conference_mvp.view.FindpassView;
+import com.githang.statusbar.StatusBarCompat;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,6 +41,10 @@ public class FindPassword_Activity extends BaseActivity implements FindpassView{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.find_password);
+        if (android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+            StatusBarCompat.setStatusBarColor(this, Color.WHITE, true);
+
+        }
         ButterKnife.bind(this);
     }
 

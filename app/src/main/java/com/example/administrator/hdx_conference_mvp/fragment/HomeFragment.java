@@ -88,6 +88,8 @@ public class HomeFragment extends BaseFragment {
         ptab.setViewPager(mViewpage);
     }
 
+
+    //查询数据库中是否含有
     public boolean isInsert(TagString tagString){
         if (tagStringDao.queryBuilder().where(TagStringDao.Properties.Title.eq(tagString.getTitle())).list()==null||tagStringDao.queryBuilder().where(TagStringDao.Properties.Title.eq(tagString.getTitle())).list().size()==0){
             return false;

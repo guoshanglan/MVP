@@ -1,6 +1,7 @@
 package com.example.administrator.hdx_conference_mvp;
 
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -15,6 +16,7 @@ import com.example.administrator.hdx_conference_mvp.fragment.FindFragment;
 import com.example.administrator.hdx_conference_mvp.fragment.HomeFragment;
 import com.example.administrator.hdx_conference_mvp.fragment.MessageFragment;
 import com.example.administrator.hdx_conference_mvp.fragment.MoreFragment;
+import com.githang.statusbar.StatusBarCompat;
 
 import java.util.List;
 
@@ -41,6 +43,10 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+            StatusBarCompat.setStatusBarColor(this, Color.WHITE, true);
+
+        }
         ButterKnife.bind(this);
         initTab();
 

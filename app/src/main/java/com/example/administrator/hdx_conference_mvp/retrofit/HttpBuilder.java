@@ -205,10 +205,6 @@ public class HttpBuilder {
         return true;
     }
 
-
-
-
-
     /*public Observable<ResponseBody> Obdownload() {
         this.url = checkUrl(this.url);
         this.params = checkParams(this.params);

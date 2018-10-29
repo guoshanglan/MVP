@@ -31,7 +31,9 @@
 
         <activity android:name=".activity.LoginActivity"
             android:windowSoftInputMode="adjustPan"
+            android:theme="@style/TranslucentTheme"
             android:configChanges="orientation"/>
+
         <activity android:name=".activity.FindPassword_Activity"
             android:windowSoftInputMode="adjustPan"
             android:configChanges="orientation"/>

@@ -2,11 +2,15 @@ package com.example.administrator.hdx_conference_mvp.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,7 +21,6 @@ import com.example.administrator.hdx_conference_mvp.base.BaseActivity;
 import com.example.administrator.hdx_conference_mvp.base.BasePresenter;
 import com.example.administrator.hdx_conference_mvp.bean.LoginBean;
 import com.example.administrator.hdx_conference_mvp.presenter.LoginPresenter;
-import com.example.administrator.hdx_conference_mvp.utils.StatusBarUtil;
 import com.example.administrator.hdx_conference_mvp.view.LoginView;
 import com.example.administrator.hdx_conference_mvp.widview.EditTextWithDel;
 
@@ -41,6 +44,7 @@ public class LoginActivity extends BaseActivity  implements LoginView{
     @BindView(R.id.login_submit_botton)
     public Button btLogin; //登录
     @BindView(R.id.tv_forgetpassword)
+
     public TextView tvForgetpassword;
     @BindView(R.id.tv_resigest)
     public TextView tvResigest;
@@ -51,9 +55,15 @@ public class LoginActivity extends BaseActivity  implements LoginView{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
+        }
         setContentView(R.layout.loginactivity);
-
-        StatusBarUtil.setTranslucent(this, 0);
         ButterKnife.bind(this);
 
     }
