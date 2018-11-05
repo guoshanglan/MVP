@@ -10,8 +10,8 @@ import com.example.administrator.hdx_conference_mvp.bean.FindPasswordBean;
  */
 
 public interface FindpassView {
+    String getUsername();
     String getNumber();
-    String getPass();
     Context getContext();
     FindPassword_Activity getActivity();
 

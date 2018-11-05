@@ -89,6 +89,7 @@ public class MainActivity extends BaseActivity {
     }
 
 
+    //切换底部tab页面
     private void SwitchSkip(int index) {
         Log.e("pp", currentTabIndex + "+++" + index);
         ft = fragmentmanager.beginTransaction();
@@ -99,18 +100,18 @@ public class MainActivity extends BaseActivity {
             ft.hide(fragments[currentTabIndex]).show(fragments[index]).commit();
 
 
-           for (int i=0;i<buttonList.size();i++){
-               if (i==index){
-                   buttonList.get(index).setSelected(true);
-                   buttonList.get(index).setTextColor(Color.parseColor("#e6007b"));
+            for (int i = 0; i<buttonList.size(); i++){
+                if (i==index){
+                    buttonList.get(index).setSelected(true);
+                    buttonList.get(index).setTextColor(Color.parseColor("#e6007b"));
 
-               }else{
-                   buttonList.get(i).setSelected(false);
-                   buttonList.get(i).setTextColor(Color.parseColor("#484848"));
-                   buttonList.get(i).setTextColor(Color.parseColor("#484848"));
-                   buttonList.get(i).setTextColor(Color.parseColor("#484848"));
-               }
-           }
+                }else{
+                    buttonList.get(i).setSelected(false);
+                    buttonList.get(i).setTextColor(Color.parseColor("#484848"));
+                    buttonList.get(i).setTextColor(Color.parseColor("#484848"));
+                    buttonList.get(i).setTextColor(Color.parseColor("#484848"));
+                }
+            }
 
             currentTabIndex = index;
         }

@@ -20,7 +20,7 @@ public class FindpasswordModel {
     public FindPasswordBean findPasswordBean;
 
     //登录的网络请求
-    public void loginNet(final Context context, String number, String password , final FindPasswordPresenter listener){
+    public void findPassword(final Context context, String number, String password, final FindPasswordPresenter listener) {
         new HttpBuilder(Url.FindPassword)
                 .params("username",number)
                 .params("password",password)

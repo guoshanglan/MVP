@@ -23,8 +23,8 @@ public class FindPasswordPresenter  extends BasePresenter<FindpassView> implemen
 
 
     //通过activity点击的时候调用这个网络请求方法
-    public void loginNet(){
-        findpasswordModel.loginNet(mView.getContext(),mView.getNumber(),mView.getPass(),this);
+    public void FindPassword() {
+        findpasswordModel.findPassword(mView.getContext(), mView.getNumber(), mView.getUsername(), this);
     }
 
     //登录成功,这边的mview，已经在basePresenter中定义过了

@@ -1,5 +1,6 @@
 package com.example.administrator.hdx_conference_mvp.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -8,8 +9,10 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import com.example.administrator.hdx_conference_mvp.R;
+import com.example.administrator.hdx_conference_mvp.activity.Details_Activity;
 import com.example.administrator.hdx_conference_mvp.adapter.HomeAdapter;
 import com.example.administrator.hdx_conference_mvp.adapter.HomeBannerAdapter;
 import com.example.administrator.hdx_conference_mvp.base.BaseFragment;
@@ -26,7 +29,7 @@ import butterknife.Unbinder;
  * Created by Administrator on 2018/8/28.
  */
 
-public class HomePageFragment extends BaseFragment implements XListView.IXListViewListener {
+public class HomePageFragment extends BaseFragment implements XListView.IXListViewListener, AdapterView.OnItemClickListener {
     private Unbinder unbinder;
     public View view,headview;
     public XListView mListView;     //列表控件
@@ -74,6 +77,7 @@ public class HomePageFragment extends BaseFragment implements XListView.IXListVi
         adapter=new HomeAdapter(getActivity(),list);
         mListView.setAdapter(adapter);
         mListView.addHeaderView(headview);
+        mListView.setOnItemClickListener(this);
 
     }
 
@@ -122,5 +126,10 @@ public class HomePageFragment extends BaseFragment implements XListView.IXListVi
     public void onLoadMore() {
         mListView.stopLoadMore();
         mListView.stopRefresh();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        startActivity(new Intent(getActivity(), Details_Activity.class));
     }
 }

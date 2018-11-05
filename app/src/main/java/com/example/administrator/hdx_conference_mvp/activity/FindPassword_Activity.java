@@ -5,9 +5,12 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.hdx_conference_mvp.R;
 import com.example.administrator.hdx_conference_mvp.base.BaseActivity;
@@ -31,6 +34,10 @@ public class FindPassword_Activity extends BaseActivity implements FindpassView{
     public ImageView ivBack;  //返回
     @BindView(R.id.tv_find)
     public TextView tvFind;  //确认调用接口找回
+    @BindView(R.id.editText_search_username)
+    EditText etUsername;
+    @BindView(R.id.editText_search_xuehao)
+    EditText etXuehao;
     public FindPasswordPresenter presenter;
     public String username;  //这里暂时写一个姓名，其他的后面再看
 
@@ -50,10 +57,6 @@ public class FindPassword_Activity extends BaseActivity implements FindpassView{
 
 
 
-
-
-
-
     //点击事件
     @OnClick({R.id.iv_back,R.id.tv_find})
     public void onClick(View view) {
@@ -64,7 +67,14 @@ public class FindPassword_Activity extends BaseActivity implements FindpassView{
 
             case R.id.tv_find:    //立即找回
 
-
+                if (TextUtils.isEmpty(etUsername.getText().toString().trim().replace(" ", ""))) {
+                    Toast.makeText(this, "请输入用户名", Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.isEmpty(etXuehao.getText().toString().trim().replace(" ", ""))) {
+                    Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show();
+                } else {
+                    showUpLoadingDialog(this);   //显示加载框
+                    presenter.FindPassword();   //找回密码
+                }
 
 
                 break;
@@ -83,17 +93,20 @@ public class FindPassword_Activity extends BaseActivity implements FindpassView{
     }
 
 
+    @Override
+    public String getUsername() {
+        String username = etUsername.getText().toString().trim().replace(" ", "");
+
+        return username;
+    }
 
     //调用网络请求需要从view界面用到的数据
     @Override
     public String getNumber() {
-        return null;
+        String number = etXuehao.getText().toString().trim().replace(" ", "");
+        return number;
     }
 
-    @Override
-    public String getPass() {
-        return null;
-    }
 
     @Override
     public Context getContext() {

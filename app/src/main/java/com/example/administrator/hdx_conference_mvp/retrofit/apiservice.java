@@ -69,7 +69,4 @@ public interface apiservice {
     Observable<ResponseBody> obdownload(@HeaderMap Map<String, String> headers, @Url String url, @QueryMap Map<String, String> params);
 
 
-
-
-
 }
