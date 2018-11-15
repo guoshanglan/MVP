@@ -10,6 +10,8 @@ import com.example.administrator.hdx_conference_mvp.retrofit.interfaces.Fair;
 import com.example.administrator.hdx_conference_mvp.retrofit.interfaces.Success;
 import com.google.gson.Gson;
 
+import java.util.WeakHashMap;
+
 /**
  * Created by Administrator on 2018/8/27.
  * 这个model加载网络数据，执行耗时操作
@@ -17,6 +19,7 @@ import com.google.gson.Gson;
 
 public class LoginModel {
    public LoginBean loginBean;
+    public WeakHashMap<String, Object> params;
 
 
 
@@ -45,6 +48,23 @@ public class LoginModel {
                    }
                }).post();
 
+//        params=new WeakHashMap<>();
+//        params.put("username",number);
+//        params.put("password",password);
+//       RestClient.builder().params(params).build(Url.LOGIN, null, new ISuccess() {
+//           @Override
+//           public void onSuccess(String response) {
+//               if (response!=null){
+//                   loginBean=new Gson().fromJson(response,LoginBean.class);
+//                   listener.loginSuccess(loginBean);
+//               }
+//           }
+//       }, new IError() {
+//           @Override
+//           public void onError(int code, String msg) {
+//               listener.loginFailed(msg.toString());
+//           }
+//       },null).get();
 
    }
 

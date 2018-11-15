@@ -1,8 +1,13 @@
 <resources>
-    <string name="app_name">hdx-conference-mvp</string>
+    <string name="app_name">动感时代</string>
     <string name="pull_to_refresh_pull_label">正 在 刷 新 </string>
     <string name="pull_to_refresh_release_label">放开以刷新</string>
     <string name="pull_to_refresh_footer_pull_label">上拉加载更多</string>
     <string name="pull_to_refresh_refreshing_label">正在刷新中</string>
     <string name="pull_to_refresh_footer_refreshing_label">正在加載中</string>
+    <!--zxing-->
+    <string name="msg_camera_framework_bug">相机被占用或没有相机权限，请检查</string>
+    <string name="button_ok">退出</string>
+    <string name="viewfinderview_status_text1">将二维码/条码放入取景框内</string>
+    <string name="viewfinderview_status_text2">即可自动扫描</string>
 </resources>

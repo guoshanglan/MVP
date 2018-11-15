@@ -138,7 +138,7 @@ public class LoginActivity extends BaseActivity  implements LoginView{
     //登录失败返回数据
     @Override
     public void setFailedError(String str) {
-       dismissUpLoadingDialog();
+        dismissUpLoadingDialog();
         Toast.makeText(this,str,Toast.LENGTH_SHORT).show();
         Log.e("登陆成功",str.toString());
     }

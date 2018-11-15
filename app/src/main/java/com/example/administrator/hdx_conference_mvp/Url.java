@@ -6,12 +6,12 @@ package com.example.administrator.hdx_conference_mvp;
 
 public class Url {
     //服务器的baseurl
-    public static String localhost ="http://39.108.61.105/xxx/party";
+    public static String localhost = "http://39.108.61.105/xxx/party/";
 
 
     //登录接口
-    public static String LOGIN=localhost+"/login";
+    public static String LOGIN = localhost + "login";
 
     //找回接口
-    public static String FindPassword=localhost+"/findpassword";
+    public static String FindPassword = localhost + "findpassword";
 }

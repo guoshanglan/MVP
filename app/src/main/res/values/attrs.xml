@@ -144,5 +144,10 @@
     </declare-styleable>
 
 
-
+    <declare-styleable name="ArrowTextView">
+        <attr name="radius1" format="dimension" />
+        <attr name="arrowWidth" format="dimension" />
+        <attr name="arrowHeight" format="dimension" />
+        <attr name="bg" format="color" />
+    </declare-styleable>
 </resources>

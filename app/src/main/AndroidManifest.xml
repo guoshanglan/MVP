@@ -31,6 +31,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.administrator.hdx_conference_mvp"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+
         <activity
             android:name=".activity.WelcomeActivity"
             android:windowSoftInputMode="adjustPan">
@@ -43,6 +54,7 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"
             android:configChanges="orientation" />
 
         <activity android:name=".activity.LoginActivity"
@@ -53,12 +65,19 @@
         <activity android:name=".activity.FindPassword_Activity"
             android:windowSoftInputMode="adjustPan"
             android:configChanges="orientation"/>
+        <activity
+            android:name=".activity.LineDetaActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:configChanges="orientation" />
 
         <activity
             android:name=".activity.Details_Activity"
             android:windowSoftInputMode="adjustPan"
             android:configChanges="orientation" />
-
+        <activity
+            android:name="com.zxinglibrary.android.CaptureActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:configChanges="orientation" />
 
         <!-- 设置环信应用的AppKey -->
         <meta-data

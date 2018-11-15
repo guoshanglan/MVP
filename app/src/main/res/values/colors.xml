@@ -17,4 +17,28 @@
     <color name="renzheng_background">#fff1eb</color>
     <color name="renzheng_textcolor_people">#0095ff</color>
     <color name="renzheng_backcolor_people">#dbeffb</color>
+
+    <color name="view_33">#333333</color>
+    <color name="view_cf">#bfbfbf</color>
+    <color name="view_b2">#b2b2b2</color>
+    <color name="view_e0">#e0e0e0</color>
+    <color name="view_1c">#1c1c1c</color>
+    <color name="view_66">#666666</color>
+    <color name="view_99">#999999</color>
+    <color name="text_right">#03b349</color>
+
+    <!--zxing-->
+    <color name="contents_text">#000000</color>
+    <color name="encode_view">#ffffff</color>
+    <color name="possible_result_points">#ffbd21</color>
+    <color name="result_minor_text">#c0c0c0</color>
+    <color name="result_points">#99cc00</color>
+    <color name="result_text">#ffffff</color>
+    <color name="result_view">#000000</color>
+    <color name="status_text">#ffffff</color>
+    <color name="viewfinder_mask">#50000000</color>
+    <color name="react">#ffffff</color>
+    <color name="scanLineColor">#ffffff</color>
+    <color name="defaultColor">#ffffff</color>
+
 </resources>

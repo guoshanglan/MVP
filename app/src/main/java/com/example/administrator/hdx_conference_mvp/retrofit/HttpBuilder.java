@@ -10,6 +10,8 @@ import com.example.administrator.hdx_conference_mvp.retrofit.interfaces.Progress
 import com.example.administrator.hdx_conference_mvp.retrofit.interfaces.Success;
 import com.example.administrator.hdx_conference_mvp.retrofit.utils.NetUtils;
 
+import org.reactivestreams.Subscriber;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +21,7 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.MediaType;
@@ -275,29 +278,29 @@ public class HttpBuilder {
     }
 
 
-
-
-
-   /* @CheckResult
-    public Observable<String> obget() {
+    //rxjava封装的请求（get）
+    public void get(Subscriber<String> subscriber) {
         if (!allready()) {
-            return null;
+            return;
         }
-        Observable call = HttpUtil.getService().post2(checkUrl(this.url), checkParams(params), checkHeaders(headers));
+        HttpUtil.getService().obget(checkUrl(this.url), checkParams(params), checkHeaders(headers))
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe((Observer) subscriber);
+    }
 
+    //rxjava封装的请求（post）
+    public void post(Subscriber<String> subscriber) {
+        if (!allready()) {
+            return;
+        }
+        HttpUtil.getService().obpost(checkUrl(this.url), checkParams(params), checkHeaders(headers))
+                .subscribe((Observer) subscriber);
     }
 
 
-*//* *//**//*   @CheckResult
-    public Observable<String> Obpost() {
-        return HttpUtil.getService().post(checkUrl(this.url), checkParams(params), checkHeaders(headers));
-    }
-*//*
-    @CheckResult
-    public Observable<String> Obput() {
-        return HttpUtil.getService().put(checkUrl(this.url), checkParams(params), checkHeaders(headers))
-                ;
-    }*/
+
 
 
 
@@ -388,6 +391,26 @@ public class HttpBuilder {
     }
 
 
+//    //create  you APiService
+//    MyApiService service = RetrofitClient.getInstance(MainActivity.this).create(MyApiService.class);
+//
+//    // execute and add observable
+//            RetrofitClient.getInstance(MainActivity.this, "http://lbs.sougu.net.cn/").execute(
+//            service.getSougu(), new Subscriber<SouguBean>(MainActivity.this) {
+//
+//        @Override
+//        public void onError(ResponeThrowable e) {
+//            Log.e("Tamic", e.getMessage());
+//            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+//
+//        }
+//        @Override
+//        public void onNext(SouguBean souguBean) {
+//
+//            Toast.makeText(MainActivity.this, souguBean.toString(), Toast.LENGTH_LONG).show();
+//
+//        }
+//    });
 
 
 }

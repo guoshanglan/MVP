@@ -66,7 +66,12 @@ public interface apiservice {
 
     @Streaming
     @GET()
-    Observable<ResponseBody> obdownload(@HeaderMap Map<String, String> headers, @Url String url, @QueryMap Map<String, String> params);
+    Observable<String> obdownload(@HeaderMap Map<String, String> headers, @Url String url, @QueryMap Map<String, String> params);
+
+
+
+
+
 
 
 }
