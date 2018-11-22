@@ -26,6 +26,7 @@ import butterknife.OnClick;
 public class WelcomeActivity extends AppCompatActivity {
     @BindView(R.id.bt_jump)
     public Button btJump;  //跳转按钮
+
     public Handler myHandler; //利用handler来进行跳转
     public boolean isJump = true;
 

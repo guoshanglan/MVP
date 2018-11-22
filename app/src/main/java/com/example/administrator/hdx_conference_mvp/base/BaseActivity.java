@@ -29,7 +29,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         super.onCreate(savedInstanceState);
         if (android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
             StatusBarCompat.setStatusBarColor(this, Color.WHITE, true);
-
         }
         //绑定初始化ButterKnife
         appLication=MyAppLication.getInstance();
