@@ -69,6 +69,10 @@
             android:name=".activity.LineDetaActivity"
             android:windowSoftInputMode="adjustPan"
             android:configChanges="orientation" />
+        <activity
+            android:name=".activity.DatePickActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:configChanges="orientation" />
 
         <activity
             android:name=".activity.Details_Activity"
@@ -79,30 +83,6 @@
             android:windowSoftInputMode="adjustPan"
             android:configChanges="orientation" />
 
-        <!-- 设置环信应用的AppKey -->
-        <meta-data
-            android:name="EASEMOB_APPKEY"
-            android:value="1159161208178639#gsl86193" />
-        <!-- 声明SDK所需的service SDK核心功能-->
-        <service
-            android:name="com.hyphenate.chat.EMChatService"
-            android:exported="true" />
-        <service
-            android:name="com.hyphenate.chat.EMJobService"
-            android:permission="android.permission.BIND_JOB_SERVICE"
-            android:exported="true" />
-        <!-- 声明SDK所需的receiver -->
-        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
-                <data android:scheme="package" />
-            </intent-filter>
-            <!-- 可选filter -->
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-            </intent-filter>
-        </receiver>
 
     </application>
 

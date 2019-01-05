@@ -21,7 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.administrator.hdx_conference_mvp.R;
-import com.example.administrator.hdx_conference_mvp.activity.LineDetaActivity;
+import com.example.administrator.hdx_conference_mvp.activity.DatePickActivity;
 import com.example.administrator.hdx_conference_mvp.activity.LoginActivity;
 import com.example.administrator.hdx_conference_mvp.base.BaseFragment;
 import com.example.administrator.hdx_conference_mvp.base.BasePresenter;
@@ -231,7 +231,7 @@ public class MoreFragment extends BaseFragment {
 
             case R.id.tv_out:    //退出登录，同时清除本地缓存
 
-                startActivity(new Intent(getActivity(), LineDetaActivity.class));
+                startActivity(new Intent(getActivity(), DatePickActivity.class));
                 break;
         }
     }
