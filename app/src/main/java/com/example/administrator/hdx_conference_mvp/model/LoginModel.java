@@ -6,11 +6,12 @@ import com.example.administrator.hdx_conference_mvp.Url;
 import com.example.administrator.hdx_conference_mvp.bean.LoginBean;
 import com.example.administrator.hdx_conference_mvp.presenter.LoginPresenter;
 import com.example.administrator.hdx_conference_mvp.retrofit.HttpBuilder;
-import com.example.administrator.hdx_conference_mvp.retrofit.interfaces.Fair;
-import com.example.administrator.hdx_conference_mvp.retrofit.interfaces.Success;
 import com.google.gson.Gson;
 
 import java.util.WeakHashMap;
+
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 /**
  * Created by Administrator on 2018/8/27.
@@ -29,24 +30,30 @@ public class LoginModel {
                .params("username",number)
                .params("password",password)
                .tag(context)
-               .success(new Success() {
+               .post2(new Observer<String>() {
                    @Override
-                   public void Success(String model) {
+                   public void onSubscribe(Disposable d) {
 
-                       if (model!=null){
-                            loginBean=new Gson().fromJson(model,LoginBean.class);
+                   }
+
+                   @Override
+                   public void onNext(String value) {
+                       if (value != null) {
+                           loginBean = new Gson().fromJson(value, LoginBean.class);
                            listener.loginSuccess(loginBean);
                        }
-
-
                    }
-               })
-               .error(new Fair() {
+
                    @Override
-                   public void Error(Object... values) {
-                       listener.loginFailed(values.toString());
+                   public void onError(Throwable e) {
+                       listener.loginFailed(e.toString());
                    }
-               }).post();
+
+                   @Override
+                   public void onComplete() {
+
+                   }
+               });
 
 //        params=new WeakHashMap<>();
 //        params.put("username",number);

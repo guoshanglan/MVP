@@ -10,8 +10,6 @@ import com.example.administrator.hdx_conference_mvp.retrofit.interfaces.Progress
 import com.example.administrator.hdx_conference_mvp.retrofit.interfaces.Success;
 import com.example.administrator.hdx_conference_mvp.retrofit.utils.NetUtils;
 
-import org.reactivestreams.Subscriber;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -279,7 +277,7 @@ public class HttpBuilder {
 
 
     //rxjava封装的请求（get）
-    public void get(Subscriber<String> subscriber) {
+    public void get(Observer<String> observable) {
         if (!allready()) {
             return;
         }
@@ -287,16 +285,18 @@ public class HttpBuilder {
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe((Observer) subscriber);
+                .subscribe((Observer) observable);
     }
 
     //rxjava封装的请求（post）
-    public void post(Subscriber<String> subscriber) {
+    public void post2(Observer<String> observable) {
         if (!allready()) {
             return;
         }
         HttpUtil.getService().obpost(checkUrl(this.url), checkParams(params), checkHeaders(headers))
-                .subscribe((Observer) subscriber);
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observable);
     }
 
 
