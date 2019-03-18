@@ -15,17 +15,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -347,70 +342,22 @@ public class HttpBuilder {
     }
 
 
-
-
-
-    //下载
-    public void download() {
+    //rxjava封装的请求（download下载）
+    public void download(Observer<String> observable) {
         this.url = checkUrl(this.url);
         this.params = checkParams(this.params);
         this.headers.put(Constant.DOWNLOAD, Constant.DOWNLOAD);
         this.headers.put(Constant.DOWNLOAD_URL, this.url);
-        Call call = HttpUtil.getService().download(checkHeaders(headers), url, checkParams(params));
-        putCall(tag, url, call);
-        Observable<ResponseBody> observable = Observable.create(new ObservableOnSubscribe<ResponseBody>() {
-            @Override
-            public void subscribe(ObservableEmitter<ResponseBody> e) throws Exception {
+        HttpUtil.getService().obdownload(checkHeaders(headers), url, checkParams(params))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observable);
+        ;
 
-            }
-        });
-
-        observable.observeOn(Schedulers.io())
-                .subscribe(new Observer<ResponseBody>() {
-                               @Override
-                               public void onSubscribe(Disposable d) {
-
-                               }
-
-                               @Override
-                               public void onNext(ResponseBody value) {
-
-                               }
-
-                               @Override
-                               public void onError(Throwable e) {
-
-                               }
-
-                               @Override
-                               public void onComplete() {
-
-                               }
-                           }
-                );
     }
 
 
-//    //create  you APiService
-//    MyApiService service = RetrofitClient.getInstance(MainActivity.this).create(MyApiService.class);
-//
-//    // execute and add observable
-//            RetrofitClient.getInstance(MainActivity.this, "http://lbs.sougu.net.cn/").execute(
-//            service.getSougu(), new Subscriber<SouguBean>(MainActivity.this) {
-//
-//        @Override
-//        public void onError(ResponeThrowable e) {
-//            Log.e("Tamic", e.getMessage());
-//            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-//
-//        }
-//        @Override
-//        public void onNext(SouguBean souguBean) {
-//
-//            Toast.makeText(MainActivity.this, souguBean.toString(), Toast.LENGTH_LONG).show();
-//
-//        }
-//    });
+
 
 
 }

@@ -49,6 +49,8 @@ public interface apiservice {
     Call<String> upLoadImg(@Url String Url, @Part MultipartBody.Part[] parts , @HeaderMap Map<String,String>header);
 
 
+    //  下面的是rxjava与retrofit的结合封装的apiservice
+
 
     //get请求
     @GET
