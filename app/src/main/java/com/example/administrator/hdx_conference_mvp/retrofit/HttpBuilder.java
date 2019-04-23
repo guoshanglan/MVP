@@ -37,6 +37,7 @@ import static com.example.administrator.hdx_conference_mvp.retrofit.HttpUtil.put
 public class HttpBuilder {
     Map<String, String> params = new HashMap<>();
     Map<String, String> headers = new HashMap<>();
+    ArrayList<String>files=new ArrayList<>();
     String url;
     String path;
     Fair mErrorCallBack;
@@ -116,6 +117,11 @@ public class HttpBuilder {
 
     public HttpBuilder params(@NonNull String key, String value) {
         this.params.put(key, value);
+        return this;
+    }
+
+    public HttpBuilder FileList(@NonNull ArrayList<String> list) {
+        this.files=list;
         return this;
     }
 
@@ -295,6 +301,30 @@ public class HttpBuilder {
     }
 
 
+  //rxjava封装的文件上传
+     public  void UploadFile(Observer<BaseModel> observable){
+         if (this.files == null) {
+             return ;
+         }
+
+         MultipartBody.Part[] parts = new MultipartBody.Part[files.size()];
+         int cnt = 0;
+         for (String m : files) {
+             File file = new File(m);
+             RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+             MultipartBody.Part filePart = MultipartBody.Part.createFormData("headimg[]", file.getName(), requestFile);
+             parts[cnt] = filePart;
+             cnt++;
+         }
+
+         HttpUtil.getService().uploadFiles(checkUrl(this.url), parts, checkHeaders(headers))
+                 .subscribeOn(Schedulers.io())
+                 .observeOn(AndroidSchedulers.mainThread())
+                 .subscribe(observable);
+
+     }
+
+
 
 
 
@@ -341,20 +371,20 @@ public class HttpBuilder {
 
     }
 
-
-    //rxjava封装的请求（download下载）
-    public void download(Observer<String> observable) {
-        this.url = checkUrl(this.url);
-        this.params = checkParams(this.params);
-        this.headers.put(Constant.DOWNLOAD, Constant.DOWNLOAD);
-        this.headers.put(Constant.DOWNLOAD_URL, this.url);
-        HttpUtil.getService().obdownload(checkHeaders(headers), url, checkParams(params))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(observable);
-        ;
-
-    }
+//
+//    //rxjava封装的请求（download下载）
+//    public void download(Observer<String> observable) {
+//        this.url = checkUrl(this.url);
+//        this.params = checkParams(this.params);
+//        this.headers.put(Constant.DOWNLOAD, Constant.DOWNLOAD);
+//        this.headers.put(Constant.DOWNLOAD_URL, this.url);
+//        HttpUtil.getService().obdownload(checkHeaders(headers), url, checkParams(params))
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(observable);
+//        ;
+//
+//    }
 
 
 

@@ -67,31 +67,34 @@
         android:background="#888888"></View>
 
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/smartLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#444444"
-        app:srlPrimaryColor="#444444"
-        app:srlAccentColor="@android:color/white"
-        app:srlEnablePreviewInEditMode="true">
-        <!--srlAccentColor srlPrimaryColor 将会改变 Header 和 Footer 的主题颜色-->
-        <!--srlEnablePreviewInEditMode 可以开启和关闭预览功能-->
-        <com.scwang.smartrefresh.layout.header.ClassicsHeader
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+    <!--<com.scwang.smartrefresh.layout.SmartRefreshLayout-->
+        <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+        <!--android:id="@+id/smartLayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="#444444"-->
+        <!--app:srlPrimaryColor="#444444"-->
+        <!--app:srlAccentColor="@android:color/white"-->
+        <!--app:srlEnablePreviewInEditMode="true">-->
+        <!--&lt;!&ndash;srlAccentColor srlPrimaryColor 将会改变 Header 和 Footer 的主题颜色&ndash;&gt;-->
+        <!--&lt;!&ndash;srlEnablePreviewInEditMode 可以开启和关闭预览功能&ndash;&gt;-->
+        <!--<com.scwang.smartrefresh.layout.header.ClassicsHeader-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
 
-        <ListView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:background="@color/white"
-            android:id="@+id/lv_find" />
+            android:id="@+id/ly_find" />
 
-        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white" />
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+        <!--<com.scwang.smartrefresh.layout.footer.ClassicsFooter-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
+    <!--</com.scwang.smartrefresh.layout.SmartRefreshLayout>-->
 
 
 </LinearLayout>

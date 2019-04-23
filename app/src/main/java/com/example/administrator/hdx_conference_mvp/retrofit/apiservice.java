@@ -12,7 +12,6 @@ import retrofit2.http.GET;
 import retrofit2.http.HeaderMap;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Streaming;
@@ -21,7 +20,7 @@ import retrofit2.http.Url;
 
 /**
  * Created by Administrator on 2018/8/27.
- *
+ * <p>
  * 封装网络请求的方式，
  */
 
@@ -42,15 +41,15 @@ public interface apiservice {
     Call<ResponseBody> download(@HeaderMap Map<String, String> headers, @Url String url, @QueryMap Map<String, String> params);
 
 
-
     //多文件上传，例如图片等  参数： url：路径名称  part:文件集合
     @POST()
     @Multipart
-    Call<String> upLoadImg(@Url String Url, @Part MultipartBody.Part[] parts , @HeaderMap Map<String,String>header);
+    Call<String> upLoadImg(@Url String Url, @Part MultipartBody.Part[] parts, @HeaderMap Map<String, String> header);
+
+
 
 
     //  下面的是rxjava与retrofit的结合封装的apiservice
-
 
     //get请求
     @GET
@@ -62,13 +61,13 @@ public interface apiservice {
     Observable<String> obpost(@Url String url, @FieldMap Map<String, String> params, @HeaderMap Map<String, String> headers);
 
 
-    @FormUrlEncoded
-    @PUT
-    Observable<String> obput(@Url String url, @FieldMap Map<String, String> params, @HeaderMap Map<String, String> headers);
 
-    @Streaming
-    @GET()
-    Observable<String> obdownload(@HeaderMap Map<String, String> headers, @Url String url, @QueryMap Map<String, String> params);
+    //文件上传
+    @POST()
+    @Multipart
+    Observable<BaseModel> uploadFiles(@Url String url, @Part MultipartBody.Part[] parts, @HeaderMap() Map<String, String> header);
+
+
 
 
 

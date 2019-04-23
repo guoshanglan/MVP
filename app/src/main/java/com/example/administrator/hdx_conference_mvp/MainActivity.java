@@ -89,6 +89,8 @@ public class MainActivity extends BaseActivity {
     }
 
 
+
+
     //切换底部tab页面
     private void SwitchSkip(int index) {
         Log.e("pp", currentTabIndex + "+++" + index);
@@ -108,8 +110,7 @@ public class MainActivity extends BaseActivity {
                 }else{
                     buttonList.get(i).setSelected(false);
                     buttonList.get(i).setTextColor(Color.parseColor("#484848"));
-                    buttonList.get(i).setTextColor(Color.parseColor("#484848"));
-                    buttonList.get(i).setTextColor(Color.parseColor("#484848"));
+
                 }
             }
 

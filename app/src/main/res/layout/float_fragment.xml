@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.administrator.hdx_conference_mvp.widview.XListView
+        android:id="@+id/listview"
+        android:background="@color/background_color"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="0dp"
+        android:cacheColorHint="@color/transparent"
+        android:divider="@android:color/transparent"
+        android:listSelector="@color/transparent" />
+
+    <LinearLayout
+        android:id="@+id/flow_view"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+
+        android:orientation="horizontal" >
+        <Button
+            android:id="@+id/timo"
+            android:layout_width="0dp"
+            android:textAllCaps="false"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#B4CDE6"
+            android:text="test1" />
+        <Button
+            android:id="@+id/xiaoyu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:background="#B4CDE6"
+            android:text="test2" />
+        <Button
+            android:id="@+id/kainan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:background="#B4CDE6"
+            android:text="test3" />
+        <Button
+            android:id="@+id/lulu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:background="#B4CDE6"
+            android:text="test4" />
+    </LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>

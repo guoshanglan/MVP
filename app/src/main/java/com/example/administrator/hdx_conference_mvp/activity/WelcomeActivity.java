@@ -41,6 +41,9 @@ public class WelcomeActivity extends AppCompatActivity {
 
         }
 
+
+
+
         myHandler = new Handler() {
             public void handleMessage(Message msg) {
                 if (msg.what == 0) {

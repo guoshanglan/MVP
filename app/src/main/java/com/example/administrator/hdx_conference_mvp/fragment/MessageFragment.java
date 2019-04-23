@@ -26,7 +26,7 @@ import java.util.List;
 
 public class MessageFragment extends BaseFragment {
     public View view;
-    //这里的图片从百度图片中下载，图片规格是960*640
+
     private static final int[] drawableIds = new int[]{R.drawable.meinv,R.drawable.meinv,R.drawable.meinv,R.drawable.meinv,R.drawable.meinv};
     private ViewPager mViewPager;
     private RelativeLayout mRelativeLayout;

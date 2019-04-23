@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/smartLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#444444"
+        app:srlPrimaryColor="#444444"
+        app:srlAccentColor="@android:color/white"
+        app:srlEnablePreviewInEditMode="true">
+    <!--srlAccentColor srlPrimaryColor 将会改变 Header 和 Footer 的主题颜色-->
+    <!--srlEnablePreviewInEditMode 可以开启和关闭预览功能-->
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/coord_layout_detail">
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbar_detail"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_layout_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:collapsedTitleTextAppearance="@style/ToolBarTitleText"
+                    app:contentScrim="@color/white"
+                    app:expandedTitleMarginEnd="48dp"
+                    app:expandedTitleMarginStart="48dp"
+                    app:expandedTitleTextAppearance="@style/transparentText"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                    <LinearLayout
+                        android:id="@+id/head_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                        <include layout="@layout/detail_headlayout" />
+
+                    </LinearLayout>
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp"
+                        app:layout_collapseMode="pin"
+                        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+
+                        <LinearLayout
+                            android:id="@+id/head_toolbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:id="@+id/back_img"
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginTop="16dp"
+                                    android:src="@drawable/back_arrows" />
+
+                                <!--<TextView-->
+                                    <!--android:id="@+id/name_tv_toolbar"-->
+                                    <!--android:layout_width="110dp"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:layout_centerInParent="true"-->
+                                    <!--android:layout_centerVertical="true"-->
+                                    <!--android:ellipsize="end"-->
+                                    <!--android:gravity="center"-->
+                                    <!--android:singleLine="true"-->
+                                    <!--android:text="商品详情"-->
+                                    <!--android:textColor="#333333"-->
+                                    <!--android:textSize="18sp"-->
+                                    <!--android:visibility="invisible" />-->
+
+                                <LinearLayout
+                                    android:id="@+id/tablayout_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    android:gravity="center"
+                                    android:paddingLeft="50dp"
+                                    android:paddingRight="50dp"
+                                    android:orientation="vertical"
+                                    android:visibility="gone">
+
+                                <include layout="@layout/detail_tab" />
+
+                                </LinearLayout>
+
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="15dp"
+                                    android:layout_marginTop="16dp">
+
+                                    <ImageView
+                                        android:id="@+id/msg_img"
+                                        android:layout_width="22dp"
+                                        android:layout_height="22dp"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_centerVertical="true"
+                                        android:src="@mipmap/ic_launcher" />
+
+                                    <ImageView
+                                        android:id="@+id/reminding_img"
+                                        android:layout_width="8dp"
+                                        android:layout_height="8dp"
+                                        android:layout_alignParentRight="true"
+                                        android:src="@mipmap/ic_launcher"
+                                        android:visibility="gone" />
+
+                                </RelativeLayout>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.Toolbar>
+
+                </android.support.design.widget.CollapsingToolbarLayout>
+            </android.support.design.widget.AppBarLayout>
+
+            <com.example.administrator.hdx_conference_mvp.utils.NestedScrollViewUtils
+                android:id="@+id/nsv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:scrollbars="none"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+                    <include layout="@layout/activity_commodity_detail_layout" />
+
+                    <include layout="@layout/activity_shop_detail_img_layout" />
+
+                    <include layout="@layout/activity_comment_item_layout" />
+
+                    <include layout="@layout/item_recommend_layout" />
+
+                </LinearLayout>
+
+
+            </com.example.administrator.hdx_conference_mvp.utils.NestedScrollViewUtils>
+
+        </android.support.design.widget.CoordinatorLayout>
+    </RelativeLayout>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</LinearLayout>

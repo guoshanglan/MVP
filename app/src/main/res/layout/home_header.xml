@@ -79,7 +79,7 @@
             android:drawableTop="@drawable/img_dynamic"
             android:gravity="center"
             android:drawablePadding="5dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             android:textColor="@color/text_color"
             android:layout_marginTop="@dimen/dontai_juli"
             android:id="@+id/textView" />

@@ -56,7 +56,7 @@ public class HomeFragment extends BaseFragment {
             title.add("首页");
             list.add(new HomePageFragment());
             for (int i = 1; i < name.size(); i++) {
-             title.add(name.get(i).getTitle());
+               title.add(name.get(i).getTitle());
                 list.add(new FloatFragment());
             }
         }else{
